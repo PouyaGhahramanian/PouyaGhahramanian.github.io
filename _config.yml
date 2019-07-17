@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Pouya Ghahramanian"
+title                    : "About me"
 title_separator          : "-"
 name                     : &name "Pouya Ghahramanian"
 description              : &description "Member of Bilkent Information Retrieval (BILIR) Group."
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "https://www.linkedin.com/in/pooyaghahramanian"
+  linkedin         : "pouyaghahramanian"
   orcid            : # "http://orcid.org/PouyaGhahramanian"
   pinterest        :
   soundcloud       :
