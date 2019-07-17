@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Pouya Ghahramanian"
 title_separator          : "-"
 name                     : &name "Pouya Ghahramanian"
-description              : &description "Member of Bilkent Information Retrieval (BILIR) Group"
+description              : &description "Member of Bilkent Information Retrieval (BILIR) Group."
 url                      : https://PouyaGhahramanian.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "PouyaGhahramanian/PouyaGhahramanian.github.io"
@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Pouya Ghahramanian"
   avatar           : "profile.png"
-  bio              : "Research Assistant at Bilkent University, Member of Bilkent Information Retrieval (BILIR) Group"
+  bio              : "Graduate Research Assistant and Member of Bilkent Information Retrieval (BILIR) Group at Bilkent University."
   location         : "Ankara, Turkey"
   employer         :
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://scholar.google.com/PouyaGhahramanian"
-  email            :
+  googlescholar    : # "http://scholar.google.com/PouyaGhahramanian"
+  email            : "PouyaGhahramanian@Gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -102,8 +102,8 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
-  orcid            : "http://orcid.org/PouyaGhahramanian"
+  linkedin         : "https://www.linkedin.com/in/pooyaghahramanian"
+  orcid            : # "http://orcid.org/PouyaGhahramanian"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
@@ -255,7 +255,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Turkey/Ankara # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
