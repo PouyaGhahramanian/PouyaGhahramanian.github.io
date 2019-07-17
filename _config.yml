@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "About me"
+title                    : "Pouya Ghahramanian"
 title_separator          : "-"
 name                     : &name "Pouya Ghahramanian"
 description              : &description "Member of Bilkent Information Retrieval (BILIR) Group."
