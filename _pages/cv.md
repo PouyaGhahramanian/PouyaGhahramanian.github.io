@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+Click [here](https://PouyaGhahramanian.github.io/files/CV.pdf){: .notice--info} for downloading my CV as a PDF file.
+
 Education
 ======
 * M.S. in Computer Engineering, Bilkent University, Present
@@ -28,23 +30,46 @@ Teaching experience
 * Teaching assistant, Algorithms and Programming II, David Davenport, Spring semester 2018-2019, Department of Computer Engineering, Bilkent University
 * Teaching assistant, Fundamentals of Database Design, Dr. Zarepour, Spring semester 2017-2018, Department of Computer Engineering, IUST
 
-Skills
+Programming Skills
 ======
+* Python (Machine Learning, Image Processing, Natural Language Processing, Tensorflow, Pytorch)
+* Java
+* C#.Net (WPF, Windows Form)
+* SQL Server and Database Design
+* Android (Android Studio, Java)
+* HTML, CSS
+* Unity Game Engine
 
 Selected R&D projects
 ======
+* Driver Drowsiness Detection (Detecting drowsiness of driver using RaspberryPi3)
+* whoTweets (streaming tweets, generating word clouds, classifying tweets, implemented in Python)
+* Shams Clinic Management System (Windows desktop application, implemented using C#.Net and SQL Server)
 
 Work experience
 ======
+* Android Developer Intern, Petanux GmbH, Bonn, Germany, June 2018 - September 2018
+* C#.Net WPF Programmer, Azar-Tarh, Tehran, Iran, June 2017 - October 2017
+* Clinic Management System, Software Developer and Database Designer, Bonab, Iran, June 2016 - September 2016
+* CRM, Software Developer and Database Designer, Bonab, Iran, June 2015 - October 2015
 
 Research interests
 ======
+* Machine Learning
+* Data Mining
+* Natural Language Processing
 
 Language proficiency
 ======
+* Azerbaijani: Mother Tongue
+* English: Fluent (TOEFL ibt: 104 - R:29, L:27, S:24, W:24)
+* Persian: Native
+* Turkish: Fluent
 
 Other activities
 ======
+* "Günəş" Azerbaijani collegiate magazine owner and publications manager, IUST, June 2015 - June 2018
+* Headmaster of "Tourism" club, IUST, June 2014 - June 2015
 
 <!--
 Work experience
