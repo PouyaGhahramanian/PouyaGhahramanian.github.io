@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Click [here](https://PouyaGhahramanian.github.io/files/CV.pdf){: .notice--info} for downloading my CV as a PDF file.
+Click [here](https://PouyaGhahramanian.github.io/files/CV.pdf) for downloading my CV as a PDF file.
 
 Education
 ======
@@ -62,7 +62,7 @@ Research interests
 Language proficiency
 ======
 * Azerbaijani: Mother Tongue
-* English: Fluent (TOEFL ibt: 104 - R:29, L:27, S:24, W:24)
+* English: Fluent (TOEFL ibt: 104 - R: 29, L: 27, S: 24, W: 24)
 * Persian: Native
 * Turkish: Fluent
 
