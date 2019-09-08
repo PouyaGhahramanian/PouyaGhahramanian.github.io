@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Click [here](https://PouyaGhahramanian.github.io/files/CV.pdf) for downloading my CV as a PDF file.
+Click [here](https://PouyaGhahramanian.github.io/files/Pouya_Ghahramanian_cv.pdf) for downloading my CV as a PDF file.
 
 Education
 ======
