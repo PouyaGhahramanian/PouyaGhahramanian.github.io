@@ -25,6 +25,10 @@ Awards and Honors
 * Invited to and participated in National Talents Foundation, “Scientific Friend” program, 2009
 * Qualified in Computer and Physics national olympiads, first level, 2009, 2010
 
+Publications
+======
+* A Novel Neural Architecture for Tracking Evolving User Interests On-The-Fly, The Web Conference 2021 (WWW21), Submitted, Published: Pending
+
 Teaching experience
 ======
 * Teaching assistant, Algorithms and Programming II, David Davenport, Spring semester 2018-2019, Department of Computer Engineering, Bilkent University
