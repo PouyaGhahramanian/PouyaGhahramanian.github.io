@@ -13,12 +13,14 @@ Click [here](https://PouyaGhahramanian.github.io/files/Pouya_Ghahramanian_cv.pdf
 
 Education
 ======
-* M.S. in Computer Engineering, Bilkent University, Present
+* M.S. in Computer Engineering, Bilkent University, 2021
 * B.S. in Computer Engineering, Iran University of Science and Technology (IUST), 2018
 * High School Diploma, Mathematics and Physics, Allameh-Tabatabaei High School under Supervision of NODET (National Organization for Development of Exceptional Talents), 2013
 
 Awards and Honors
 ======
+* Granted TUBITAK (Turkish Unicef) scholarship for the project "Online Classification of Evolving Text Streams with an Optimal Neural Ensemble Network" (project no. 120E103), 2021
+* Granted TUBITAK scholarship for the project "Online classification of multi-source parallel data streams in big data environments" (project no. 117E870), 2019
 * Ranked 659th among more than 450,000 participants in the nation-wide universities entrance exam (the Konkoor), 2013
 * Gold medal in Paya scientific league in field of physics, 2010
 * Gold medal in Paya scientific league in field of research (Make airplane invisible to radar), 2010
@@ -27,8 +29,10 @@ Awards and Honors
 
 Teaching experience
 ======
-* Teaching assistant, Algorithms and Programming II, David Davenport, Spring semester 2018-2019, Department of Computer Engineering, Bilkent University
-* Teaching assistant, Fundamentals of Database Design, Dr. Zarepour, Spring semester 2017-2018, Department of Computer Engineering, IUST
+* Teaching Assistant, Computer Organization, Dr. Fazli Can, 2020 - 2021, Department of Computer Engineering, Bilkent University
+* Teaching Assistant, Information Retrieval, Dr. Fazli Can, 2019 - 2020, Department of Computer Engineering, Bilkent University
+* Teaching assistant, Algorithms and Programming II, David Davenport, 2018-2019, Department of Computer Engineering, Bilkent University
+* Teaching assistant, Fundamentals of Database Design, Dr. Zarepour, 2017-2018, Department of Computer Engineering, IUST
 
 Programming Skills
 ======
@@ -56,6 +60,7 @@ Work experience
 Research interests
 ======
 * Machine Learning
+* Information Retrieval
 * Data Mining
 * Natural Language Processing
 
@@ -68,8 +73,8 @@ Language proficiency
 
 Other activities
 ======
-* "Günəş" Azerbaijani collegiate magazine owner and publications manager, IUST, June 2015 - June 2018
-* Headmaster of "Tourism" club, IUST, June 2014 - June 2015
+* "Günəş" collegiate magazine owner and publications manager, IUST, June 2015 - June 2018
+* Headmaster of "Iranshenasi va Gardeshgari" club, IUST, June 2014 - June 2015
 
 <!--
 Work experience
