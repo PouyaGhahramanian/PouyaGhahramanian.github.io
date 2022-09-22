@@ -1,6 +1,6 @@
 ---
-title: 'We all travel through time with the speed of light!'
-date: 2020-08-31
+title: 'Snowflake'
+date: 2022-09-22
 permalink: /posts/2022/09/Snowflake/
 tags:
 
