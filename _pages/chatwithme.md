@@ -7,4 +7,4 @@ redirect_to: "http://dracaena.000webhostapp.com/index.php"
 
 # Redirecting...
 
-If you are not redirected automatically, follow this [link to the chat application](https://dracaena.000webhostapp.com/index.php).
+If you are not redirected automatically, follow this [link to the chat application](http://dracaena.000webhostapp.com/index.php).
