@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+    </span>
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {%- if page.tags.size > 0 -%}
+    <ul class="skills__list" style="margin-top: var(--space-4);">
+      {%- for tag in page.tags -%}<li class="chip">{{ tag }}</li>{%- endfor -%}
+    </ul>
+    {%- endif -%}
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="prose">
+    {{ content }}
+    <div class="post-nav">
+      <a href="{{ '/blog/' | relative_url }}">← All writing</a>
+    </div>
+  </div>
+</div>

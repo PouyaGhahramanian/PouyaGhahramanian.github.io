@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<header class="page-head">
+  <div class="wrap">
+    {% if page.eyebrow %}<span class="eyebrow">{{ page.eyebrow }}</span>{% endif %}
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {% if page.standfirst %}<p class="page-head__standfirst">{{ page.standfirst }}</p>{% endif %}
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="prose">
+    {{ content }}
+  </div>
+</div>

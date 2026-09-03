@@ -1,0 +1,77 @@
+- role: "Data Scientist"
+  org: "Invent.ai"
+  location: "Ankara, Türkiye"
+  start: "2025-09"
+  end: null
+  end_label: "Present"
+  kind: "industry"
+  summary: >-
+    Own demand forecasting and replenishment models in production for enterprise
+    retail clients, from feature pipeline through model release.
+  highlights:
+    - "Cut lost sales by 10% for an enterprise retail client by improving demand forecast accuracy and the replenishment decisions driven from it."
+    - "Own demand forecasting and replenishment models in production for three enterprise retail clients, covering roughly 1M SKU-store pairs — from feature pipeline through model release."
+    - "Build and operate large-scale ML pipelines on Databricks, PySpark and Airflow: feature generation, training, backtesting and scheduled inference."
+    - "Design the offline and online evaluation behind model releases — backtesting setup, holdout construction and drift monitoring on live series."
+    - "Deliver inventory-visibility models and next-best-action recommendations for client planners, working with product and engineering to ship them."
+
+- role: "Senior AI/ML Researcher"
+  role_note: "part-time"
+  org: "Bilkent University"
+  location: "Ankara, Türkiye"
+  start: "2019-04"
+  end: null
+  end_label: "Present"
+  kind: "research"
+  summary: >-
+    Named senior researcher on three government-funded R&D programs, leading the
+    ML workstream on classification, anomaly detection and concept-drift
+    adaptation over large-scale streaming and event data.
+  highlights:
+    - "Named senior researcher on three government-funded R&D programs (TÜBİTAK 117E870, 120E103, 125E060); lead the ML workstream on classification, anomaly detection and concept-drift adaptation over large-scale streaming and event data."
+    - "Designed AdaNEN, a neural ensemble for evolving data streams, improving classification accuracy by up to 8.8% across 13 benchmark datasets (ACM TKDD)."
+    - "Co-designed LACE, an unsupervised concept-drift detector for multi-label streams that cuts detection delay by 63.5% versus the previous best unsupervised method at a 0% missed-detection rate (ACM CIKM 2026)."
+    - "Proposed the Adaptimizer optimizer and an On-the-Fly Adaptation (OFA) framework for continual LLM adaptation under temporal drift, evaluated across two decades of news (ACM CIKM 2025); implemented in PyTorch and HuggingFace."
+    - "Own projects end-to-end — dataset construction, training, evaluation metrics, and offline/online experiments — turning research into reusable, well-evaluated models."
+
+- role: "Teaching Assistant"
+  role_note: "part-time"
+  org: "Bilkent University"
+  location: "Ankara, Türkiye"
+  start: "2019-02"
+  end: null
+  end_label: "Present"
+  kind: "teaching"
+  summary: >-
+    Teach and mentor students in Information Retrieval, Algorithms and Computer
+    Organization; supervise student projects on online learning, neural retrieval
+    and ranking systems.
+  highlights:
+    - "Teach and mentor students in Information Retrieval, Algorithms and Computer Organization, explaining complex ML concepts to technical and non-technical audiences."
+    - "Supervise student projects on online learning, neural retrieval and ranking systems."
+  courses:
+    - "Information Retrieval — Prof. Fazlı Can"
+    - "Computer Organization — Prof. Fazlı Can"
+    - "Algorithms and Programming II — David Davenport"
+
+- role: "Android Developer Intern"
+  org: "Petanux GmbH"
+  location: "Bonn, Germany"
+  start: "2018-06"
+  end: "2018-09"
+  kind: "earlier"
+  summary: "Built an Android app for online price comparison across multiple vendors."
+  highlights:
+    - "Built an Android app for online price comparison across multiple vendors."
+
+- role: "Software Engineer"
+  org: "Shams Clinic"
+  location: "Tehran, Iran"
+  start: "2017-06"
+  end: "2017-10"
+  kind: "earlier"
+  summary: >-
+    Built a clinic management system for appointment scheduling, staff
+    coordination and financial tracking, used in daily operations.
+  highlights:
+    - "Built a clinic management system for appointment scheduling, staff coordination and financial tracking, used in daily operations."

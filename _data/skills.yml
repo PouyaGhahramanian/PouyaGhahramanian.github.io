@@ -1,0 +1,50 @@
+- group: "Machine Learning & LLMs"
+  items:
+    - PyTorch
+    - HuggingFace Transformers
+    - Scikit-learn
+    - NumPy
+    - pandas
+    - Deep Learning
+    - Neural Networks
+    - Large Language Models
+    - "Fine-tuning (LoRA / PEFT)"
+    - "Retrieval-Augmented Generation (RAG)"
+    - Vector Databases
+
+- group: "ML Methods"
+  items:
+    - "Time-Series Forecasting & Demand Prediction"
+    - Classification
+    - Anomaly Detection
+    - Recommendation
+    - Ensemble Learning
+    - "Online & Continual Learning"
+    - Concept-Drift Adaptation
+    - Time-Series Foundation Models
+    - Feature Engineering
+    - "Experimentation (offline/online)"
+    - "Statistical Hypothesis Testing (Friedman, Wilcoxon)"
+    - Model Evaluation
+
+- group: "Data & MLOps"
+  items:
+    - SQL
+    - Databricks
+    - PySpark
+    - Airflow
+    - FastAPI
+    - Docker
+    - Linux
+    - Git
+    - CI/CD
+    - "AWS (EC2, S3, Bedrock)"
+    - Azure ML
+
+- group: "Programming"
+  items:
+    - "Python (primary)"
+    - SQL
+    - "C++"
+    - Java
+    - "C#"

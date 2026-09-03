@@ -1,0 +1,57 @@
+{%- assign pub = include.pub -%}
+<li class="biblio__item">
+  <div class="biblio__rail">
+    <span class="biblio__year">{{ pub.year }}</span>
+    {%- if pub.handle -%}<span class="biblio__handle">{{ pub.handle }}</span>{%- endif -%}
+  </div>
+
+  <div class="biblio__body">
+    <h3 class="biblio__title">
+      {%- if pub.links.doi -%}
+        <a href="{{ pub.links.doi }}">{{ pub.title }}</a>
+      {%- else -%}
+        {{ pub.title }}
+      {%- endif -%}
+    </h3>
+
+    <p class="biblio__authors">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+
+    <p class="biblio__venue">
+      {{ pub.venue_short }}
+      {%- if pub.status == "under_review" %} · under review{% endif -%}
+    </p>
+
+    {%- if pub.excerpt_override or pub.excerpt -%}
+    <p class="biblio__note">{{ pub.excerpt_override | default: pub.excerpt }}</p>
+    {%- endif -%}
+
+    {%- comment -%}
+    The result line: the italic sentence above carries the meaning, this carries
+    the number — for the reader who gives the page eight seconds.
+    {%- endcomment -%}
+    {%- if pub.result -%}
+    <p class="biblio__result">{{ pub.result }}</p>
+    {%- endif -%}
+
+    <div class="biblio__links">
+      {%- if pub.status == "under_review" -%}
+        <span class="chip chip--review">Under review</span>
+      {%- endif -%}
+      {%- if pub.links.doi -%}
+        <a class="chip" href="{{ pub.links.doi }}">
+          {% include icon.html name="doi" %} Paper
+        </a>
+      {%- endif -%}
+      {%- if pub.links.code -%}
+        <a class="chip" href="{{ pub.links.code }}">
+          {% include icon.html name="code" %} Code
+        </a>
+      {%- endif -%}
+      {%- if pub.links.thesis -%}
+        <a class="chip" href="{{ pub.links.thesis }}">
+          {% include icon.html name="pdf" %} Thesis
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</li>

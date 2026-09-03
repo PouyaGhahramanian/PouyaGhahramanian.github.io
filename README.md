@@ -1,31 +1,117 @@
-A Github Pages template for academic websites. This was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License. See LICENSE.md.
+# ghrmn.com
 
-I think I've got things running smoothly and fixed some major bugs, but feel free to file issues or make pull requests if you want to improve the generic template / theme.
+Personal site of Pouya Ghahramanian — PhD researcher in machine learning for
+data streams (Bilkent University, BilIR) and data scientist at Invent.ai.
 
-### Note: if you are using this repo and now get a notification about a security vulnerability, delete the Gemfile.lock file. 
+Jekyll 4, hand-written SCSS, no framework and no JS dependencies.
 
-# Instructions
+---
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this repository](https://github.com/academicpages/academicpages.github.io) by clicking the "fork" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](http://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+## Running it locally
 
-See more info at https://academicpages.github.io/
+Requires Ruby 3.1+ (this repo was developed against the Homebrew Ruby).
 
-## To run locally (not on GitHub Pages, to serve on your own computer)
+```sh
+bundle install
+bundle exec jekyll serve --livereload
+# http://127.0.0.1:4000
+```
 
-1. Clone the repository and made updates as detailed above
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle clean` to clean up the directory (no need to run `--force`)
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `bundle exec jekyll liveserve` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+Build and check for broken internal links exactly as CI does:
 
-# Changelog -- bugfixes and enhancements
+```sh
+bundle exec jekyll build
+bundle exec ruby scripts/check_links.rb
+```
 
-There is one logistical issue with a ready-to-fork template theme like academic pages that makes it a little tricky to get bug fixes and updates to the core theme. If you fork this repository, customize it, then pull again, you'll probably get merge conflicts. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch. 
+## Deployment
 
-To support this, all changes to the underlying code appear as a closed issue with the tag 'code change' -- get the list [here](https://github.com/academicpages/academicpages.github.io/issues?q=is%3Aclosed%20is%3Aissue%20label%3A%22code%20change%22%20). Each issue thread includes a comment linking to the single commit or a diff across multiple commits, so those with forked repositories can easily identify what they need to patch.
+Pushing to `master` triggers [`.github/workflows/pages.yml`](.github/workflows/pages.yml),
+which builds with the pinned Jekyll from the `Gemfile`, runs the link check, and
+deploys to GitHub Pages. Local and production therefore run identical versions —
+which the legacy `github-pages` metagem could not offer.
+
+> **One-time setting:** this requires **Settings → Pages → Build and deployment
+> → Source = GitHub Actions**. Until that is switched, GitHub keeps using the
+> legacy branch build and this workflow's deploy step will fail while the live
+> site stays up.
+
+See [`docs/domains-and-https.md`](docs/domains-and-https.md) for the domain and
+HTTPS setup, including the `Enforce HTTPS` fix and the `p0uya.com` redirect.
+
+## Where the content lives
+
+Content is data, not markup. Editing these files is all that routine updates need:
+
+| Path | Holds |
+| --- | --- |
+| `_data/experience.yml` | Roles, dates, bullet points |
+| `_data/education.yml` | Degrees, theses, advisors |
+| `_data/skills.yml` | Technical skills, grouped |
+| `_data/awards.yml`, `_data/service.yml`, `_data/languages.yml` | CV tail sections |
+| `_publications/*.md` | One file per paper — venue, authors, links, `result:` line |
+| `_pages/about.md` | Homepage hero, research threads, headline metrics |
+| `_pages/research.md` | The long-form research narrative |
+| `_posts/` | Writing |
+| `files/Pouya_Ghahramanian_cv.pdf` | The downloadable CV |
+
+`/experience/`, `/cv/` and the publication lists are all generated from the same
+data, so a fact is only ever written once.
+
+### Adding a publication
+
+Create `_publications/<handle>.md`:
+
+```yaml
+---
+title: "Full paper title"
+handle: "ShortName"          # what the field remembers it as
+authors: "**Ghahramanian, P.**, & Can, F."   # bold your own name
+year: 2026
+date: 2026-01-01             # sorts the list
+venue_short: "ACM CIKM"
+venue_full: "ACM International Conference on Information and Knowledge Management"
+status: "published"          # or "under_review"
+featured: true               # surfaces it on the homepage
+result: "ACCURACY +8.8% · 13 DATASETS"   # the mono line: the number, pulled forward
+excerpt: "One sentence on what the paper does."
+links:
+  doi: "https://dl.acm.org/doi/..."
+  code: "https://github.com/..."
+---
+
+Body copy, shown on the paper's own page.
+```
+
+## Design
+
+Light-first: warm press paper by day, near-black sky by dark. The accent pair —
+burnt ochre and petrol blue — is sampled from the portrait on the homepage, so
+the photograph sits in the page rather than on it. Ochre is the only interactive
+colour; petrol is never a link.
+
+Two typefaces and no sans-serif: **Newsreader** carries every idea, **IBM Plex
+Mono** carries every piece of apparatus (nav, years, venues, labels, metrics).
+
+The one ornament is the drift trace — a reference signal and an adapted signal
+diverging at a labelled change point. It is a picture of the thing the research
+is actually about, which is why it is allowed to repeat.
+
+Every text colour clears WCAG AA on every surface it is allowed to sit on
+(lowest 4.53:1); every non-text boundary clears 3:1. Links never rely on hue
+alone, motion respects `prefers-reduced-motion`, and there is a real print
+stylesheet.
+
+```
+_sass/_tokens.scss      colours, type scale, spacing — both themes
+_sass/_base.scss        typography and document furniture
+_sass/_layout.scss      wrap, masthead, colophon
+_sass/_components.scss  bibliography, timeline, stats, chips
+_sass/_prose.scss       long-form content and the CV sheet
+_sass/_home.scss        hero, portrait plate, drift trace
+_sass/_print.scss       print
+```
+
+## Licence
+
+Site content © Pouya Ghahramanian. Code under [MIT](LICENSE).

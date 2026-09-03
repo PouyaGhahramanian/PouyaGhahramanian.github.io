@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">
+      {{ page.venue_short }} · {{ page.year }}{% if page.handle %} · {{ page.handle }}{% endif %}
+    </span>
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    <p class="page-head__standfirst">{{ page.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+    <p class="page__cta">
+      {% if page.links.doi %}<a class="button" href="{{ page.links.doi }}">{% include icon.html name="doi" %} Read the paper</a>{% endif %}
+      {% if page.links.code %}<a class="button button--ghost" href="{{ page.links.code }}">{% include icon.html name="code" %} Code</a>{% endif %}
+      {% if page.links.thesis %}<a class="button button--ghost" href="{{ page.links.thesis }}">{% include icon.html name="pdf" %} Thesis</a>{% endif %}
+    </p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="prose">
+    {{ content }}
+    <p><a href="{{ '/publications/' | relative_url }}">← All publications</a></p>
+  </div>
+</div>

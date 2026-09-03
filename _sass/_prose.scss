@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Prose — long-form markdown content
+   ========================================================================== */
+
+.page-head {
+  padding-block: var(--space-7) var(--space-6);
+  border-bottom: 1px solid var(--rule);
+}
+
+.page-head + * .section:first-child,
+.page-head + .wrap > .section:first-child {
+  padding-top: var(--space-6);
+}
+
+.page-head__title {
+  font-size: var(--step-4);
+  margin-top: var(--space-3);
+}
+
+.page-head__standfirst {
+  margin-top: var(--space-4);
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+
+.prose {
+  max-width: var(--measure);
+  padding-block: var(--space-8);
+  text-wrap: pretty;
+
+  > * + * {
+    margin-top: var(--space-5);
+  }
+
+  h2 {
+    margin-top: var(--space-8);
+    padding-top: var(--space-2);
+    font-size: var(--step-3);
+  }
+
+  h3 {
+    margin-top: var(--space-7);
+  }
+
+  h2 + p,
+  h3 + p {
+    margin-top: var(--space-4);
+  }
+
+  p {
+    color: var(--ink-muted);
+    /* Text figures belong in running prose; the global lining/tabular default
+       is for rails, tables and metrics. */
+    font-variant-numeric: oldstyle-nums proportional-nums;
+  }
+
+  strong {
+    color: var(--ink);
+  }
+
+  ul, ol {
+    padding-left: var(--space-5);
+    color: var(--ink-muted);
+
+    > li + li { margin-top: var(--space-2); }
+  }
+
+  ul { list-style: none; padding-left: 0; }
+
+  ul > li {
+    position: relative;
+    padding-left: var(--space-5);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 0.5rem;
+      height: 1px;
+      background: var(--rule-strong);
+    }
+  }
+
+  blockquote {
+    border-left: 2px solid var(--accent);
+    padding-left: var(--space-5);
+    font-family: var(--font-serif);
+    font-size: var(--step-2);
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  hr {
+    margin-block: var(--space-8);
+  }
+
+  img {
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+  }
+
+  table {
+    font-size: 0.9375rem;
+    font-variant-numeric: tabular-nums;
+
+    th, td {
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    th {
+      font-family: var(--font-mono);
+      font-size: var(--step--2);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+  }
+
+  /* Wide content must scroll inside itself, never the page. */
+  .table-scroll,
+  pre {
+    overflow-x: auto;
+  }
+
+  iframe {
+    max-width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+  }
+}
+
+.prose--wide {
+  max-width: 58rem;
+}
+
+/* --------------------------------------------------------------- CV sheet */
+
+.cv-section {
+  padding-block: var(--space-7);
+  border-top: 1px solid var(--rule);
+}
+
+.cv-section__title {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: var(--space-5);
+}
+
+.cv-download {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.cv-download__note {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--ink-faint);
+}
+
+.def-list {
+  display: grid;
+  gap: var(--space-3) var(--space-6);
+  grid-template-columns: 1fr;
+  margin: 0;
+
+  @media (min-width: 40rem) {
+    grid-template-columns: 12rem 1fr;
+  }
+
+  dt {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+
+    /* Dotted leader, drawn only where there is room for it. */
+    @media (min-width: 40rem) {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-2);
+
+      &::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px dotted var(--rule-strong);
+        transform: translateY(-0.2em);
+      }
+    }
+  }
+
+  dd {
+    margin: 0;
+    color: var(--ink-muted);
+  }
+}
+
+/* ------------------------------------------------------------- post pages */
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  margin-top: var(--space-4);
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--rule);
+  font-size: 0.9375rem;
+}
+
+/* --------------------------------------------------------------- embeds */
+
+.video-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}

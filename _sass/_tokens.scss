@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Design tokens
+
+   Light-first: warm press paper is the canonical look, with a dark mode keyed
+   to the near-black night sky of the portrait. The two modes are deliberately
+   opposite in temperature — paper by day, sky by night.
+
+   The accent pair is sampled from the portrait itself: burnt ochre from the
+   city lights, petrol blue from the cool bokeh. Ochre is the only interactive
+   colour; petrol is strictly non-interactive (venues, terms) so the two never
+   compete for the meaning of "clickable".
+
+   Every text token clears WCAG AA on every surface it is allowed to sit on
+   (lowest 4.53:1), and every non-text boundary clears 3:1.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  --paper:        #faf8f5;  /* page ground — warm press stock, never pure white */
+  --surface:      #f1ece3;  /* quiet blocks that recede: panels, colophon, code */
+  --surface-hi:   #fffdfa;  /* the one raised surface: publication row on hover */
+  --wash:         #f3e3c9;  /* ::selection, pulled statistics, hero rule tint    */
+
+  --ink:          #1a1815;
+  --ink-muted:    #5a5348;
+  --ink-faint:    #6e655a;
+
+  --accent:       #8a5510;  /* ochre — the single interactive colour */
+  --accent-hi:    #6e4109;
+  --accent-cool:  #1f4e5f;  /* petrol — venues and terms. Never a link. */
+  --link-visited: #6e4b2a;
+
+  /* 8-digit alpha so hairlines composite correctly over --surface panels
+     instead of showing a visibly wrong opaque value. */
+  --rule:        #1a181521;
+  --rule-strong: #1a181566;
+
+  --glow-warm: #8a551012;
+  --glow-cool: #1f4e5f0d;
+
+  --shadow-1: 0 1px 2px #1a181510, 0 10px 26px -18px #1a181533;
+  --shadow-2: 0 24px 56px -30px #1a181540;
+
+  /* Fades the portrait's near-black lower half into the page ground. */
+  --ground: 250, 248, 245;
+
+  /* --- type -----------------------------------------------------------
+     Two voices only, and no sans-serif anywhere: Newsreader carries every
+     idea, IBM Plex Mono carries every piece of apparatus (nav, years, venues,
+     labels, metrics, code). Newsreader's optical-size axis lets one family
+     serve both the display line and the body text.
+     -------------------------------------------------------------------- */
+  --font-serif: "Newsreader", Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, "Cascadia Mono", monospace;
+
+  --step--2: 0.6875rem;
+  --step--1: 0.8125rem;
+  --step-0:  1.125rem;
+  --step-1:  clamp(1.25rem, 1.05rem + 0.9vw, 1.5rem);
+  --step-2:  1.375rem;
+  --step-3:  clamp(1.75rem, 1.35rem + 1.7vw, 2.25rem);
+  --step-4:  clamp(2.25rem, 1.5rem + 3.2vw, 3.25rem);
+  --step-5:  clamp(2.375rem, 1.1rem + 5.6vw, 5rem);
+
+  /* --- space ----------------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* --- measure --------------------------------------------------------- */
+  --wrap: 72rem;
+  --measure: 40rem;
+  --radius: 2px;      /* a press sheet has corners, not pills */
+  --rail: 8rem;       /* margin rail: year + handle, nothing more */
+  --plate: 17rem;     /* portrait ceiling — a dark night photo punches a hole
+                         in warm paper if it is allowed to grow */
+
+  --ease: cubic-bezier(0.22, 0.68, 0.28, 1);
+}
+
+@mixin dark-tokens {
+  color-scheme: dark;
+
+  --paper:        #0e0f12;
+  --surface:      #16171b;
+  --surface-hi:   #1c1e23;
+  --wash:         #2e2717;
+
+  --ink:          #e8e3da;
+  --ink-muted:    #9c958a;
+  --ink-faint:    #978f83;  /* lightened from the spec's #8b8377, which fell to
+                               3.95:1 against --wash and failed AA */
+
+  --accent:       #d9a441;
+  --accent-hi:    #f0bc5e;
+  --accent-cool:  #6fa8be;
+  --link-visited: #d9c29a;
+
+  --rule:        #ffffff1a;
+  --rule-strong: #ffffff40;
+
+  --glow-warm: #d9a4411a;
+  --glow-cool: #6fa8be12;
+
+  --shadow-1: 0 1px 2px #00000080, 0 12px 30px -20px #000000cc;
+  --shadow-2: 0 28px 60px -32px #000000d9;
+
+  --ground: 14, 15, 18;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include dark-tokens; }
+}
+
+:root[data-theme="dark"] { @include dark-tokens; }

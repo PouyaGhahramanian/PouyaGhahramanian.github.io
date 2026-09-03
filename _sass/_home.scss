@@ -1,0 +1,231 @@
+/* ==========================================================================
+   Home
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  padding-block: var(--space-8) var(--space-9);
+
+  @media (min-width: 62rem) {
+    padding-block: var(--space-9) var(--space-10);
+  }
+}
+
+.hero__grid {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+
+  @media (min-width: 62rem) {
+    /* A fixed track for the plate: `auto` lets the image claim its intrinsic
+       960px and crushes the text column. */
+    grid-template-columns: minmax(0, 1fr) var(--plate);
+    gap: var(--space-9);
+    align-items: start;
+  }
+}
+
+.hero__headline {
+  font-size: var(--step-5);
+  overflow-wrap: break-word;
+  line-height: 0.99;
+  letter-spacing: -0.022em;
+  margin-top: var(--space-4);
+  max-width: 18ch;
+}
+
+.hero__standfirst {
+  margin-top: var(--space-5);
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-muted);
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+
+.hero__secondary {
+  margin-top: var(--space-4);
+  color: var(--ink-faint);
+  max-width: 48ch;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+/* --- portrait ------------------------------------------------------------
+
+   Held to a hard ceiling. A near-black night portrait punches a hole in warm
+   paper as it grows, so it sits inside a hairline plate at plate-width rather
+   than running as a hero image. In dark mode the photo's own sky is the page
+   ground, so the lower edge is dissolved into it instead of cut.
+   ------------------------------------------------------------------------- */
+
+.hero__portrait {
+  justify-self: start;
+  width: min(100%, var(--plate));
+  margin: 0;
+
+  @media (min-width: 62rem) {
+    justify-self: end;
+  }
+}
+
+.hero__plate {
+  position: relative;
+  display: block;
+  padding: var(--space-2);
+  border: 1px solid var(--rule-strong);
+}
+
+.hero__portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* The dissolve. An overlay rather than a mask so it composites against the
+   real page ground and needs no mask-image support. */
+.hero__plate::after {
+  content: "";
+  position: absolute;
+  inset: var(--space-2);
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--ground), 0) 58%,
+    rgba(var(--ground), 0.92) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero__plate::after { opacity: 1; }
+}
+
+:root[data-theme="dark"] .hero__plate::after { opacity: 1; }
+
+.hero__caption {
+  display: block;
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* --- the drift trace --------------------------------------------------- */
+
+.drift {
+  display: block;
+  width: 100%;
+  height: 5rem;
+  color: var(--ink);
+  overflow: visible;
+}
+
+.drift__ref,
+.drift__adapt {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.drift__ref {
+  stroke: var(--accent-cool);
+  opacity: 0.65;
+}
+
+.drift__adapt {
+  stroke: var(--accent);
+  stroke-width: 1.75;
+}
+
+.drift__marker {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.drift__dot {
+  fill: var(--accent);
+}
+
+.drift__label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--ink-faint);
+}
+
+.drift--hero {
+  height: 7rem;
+  margin-top: var(--space-7);
+}
+
+.drift--rule {
+  height: 3rem;
+  opacity: 0.55;
+}
+
+/* Draw both traces once on load; the adapted trace follows the reference so the
+   divergence reads as a consequence, not a coincidence. */
+@media (prefers-reduced-motion: no-preference) {
+  /* pathLength="1" on the paths makes these fractions, not pixel guesses, so
+     the draw completes at every viewport width. */
+  .drift__ref {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: drift-draw 2s var(--ease) 0.15s forwards;
+  }
+
+  .drift__adapt {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: drift-draw 1.3s var(--ease) 1.1s forwards;
+  }
+
+  .drift__dot {
+    opacity: 0;
+    animation: drift-pop 0.5s var(--ease) 1.25s forwards;
+  }
+}
+
+@keyframes drift-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes drift-pop {
+  from { opacity: 0; transform: scale(0.4); transform-origin: 660px 88px; }
+  to   { opacity: 1; transform: scale(1);   transform-origin: 660px 88px; }
+}
+
+/* --- home sections ----------------------------------------------------- */
+
+.home-intro {
+  max-width: var(--measure);
+  margin-inline: auto;
+
+  p {
+    margin-top: var(--space-4);
+    color: var(--ink-muted);
+    text-wrap: pretty;
+  }
+
+  strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+}

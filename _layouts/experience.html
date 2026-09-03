@@ -1,0 +1,116 @@
+---
+layout: default
+---
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Since 2017</span>
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {% if page.standfirst %}<p class="page-head__standfirst">{{ page.standfirst }}</p>{% endif %}
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="section">
+    <ol class="timeline">
+      {%- for job in site.data.experience -%}
+      <li class="timeline__item">
+        <div class="timeline__when">
+          {%- comment -%}Dates are YYYY-MM strings, not datetimes, so format them by hand.{%- endcomment -%}
+          {%- assign s = job.start | split: "-" -%}
+          {%- assign months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," -%}
+          {%- assign mi = s[1] | plus: 0 | minus: 1 -%}
+          <span>{{ months[mi] }} {{ s[0] }} &ndash;&nbsp;
+            {%- if job.end -%}
+              {%- assign e = job.end | split: "-" -%}
+              {%- assign emi = e[1] | plus: 0 | minus: 1 -%}
+              {{ months[emi] }} {{ e[0] }}
+            {%- else -%}
+              {{ job.end_label }}<span class="timeline__now" aria-hidden="true"></span>
+            {%- endif -%}
+          </span>
+        </div>
+
+        <div class="timeline__body">
+          <h2 class="timeline__role">
+            {{ job.role }}{% if job.role_note %} <span class="chip">{{ job.role_note }}</span>{% endif %}
+          </h2>
+          <p class="timeline__org">{{ job.org }} · {{ job.location }}</p>
+
+          <ul class="timeline__points">
+            {%- for point in job.highlights -%}
+            <li>{{ point }}</li>
+            {%- endfor -%}
+          </ul>
+
+          {%- if job.courses -%}
+          <ul class="skills__list" style="margin-top: var(--space-4);">
+            {%- for c in job.courses -%}<li class="chip">{{ c }}</li>{%- endfor -%}
+          </ul>
+          {%- endif -%}
+        </div>
+      </li>
+      {%- endfor -%}
+    </ol>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <div>
+        <span class="eyebrow">Education</span>
+        <h2 class="section__title">Education</h2>
+      </div>
+    </div>
+
+    <ol class="timeline">
+      {%- for ed in site.data.education -%}
+      <li class="timeline__item">
+        <div class="timeline__when">{{ ed.start }} — {{ ed.end }}{% if ed.current %}<span class="timeline__now" aria-hidden="true"></span>{% endif %}</div>
+        <div class="timeline__body">
+          <h3 class="timeline__role">{{ ed.degree }}</h3>
+          <p class="timeline__org">{{ ed.org }} · {{ ed.location }}</p>
+          {%- if ed.advisor -%}<p class="biblio__note">Advisor: {{ ed.advisor }} · {{ ed.group }}</p>{%- endif -%}
+          {%- if ed.thesis -%}
+          <p class="biblio__note">
+            Thesis: <em>{{ ed.thesis }}</em>
+            {%- if ed.thesis_advisor %} — supervised by {{ ed.thesis_advisor }}{% endif -%}
+            {%- if ed.thesis_url %} · <a href="{{ ed.thesis_url }}">Bilkent repository</a>{% endif -%}
+          </p>
+          {%- endif -%}
+          {%- if ed.notes -%}
+          <ul class="timeline__points">
+            {%- for n in ed.notes -%}<li>{{ n }}</li>{%- endfor -%}
+          </ul>
+          {%- endif -%}
+        </div>
+      </li>
+      {%- endfor -%}
+    </ol>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <div>
+        <span class="eyebrow">Toolkit</span>
+        <h2 class="section__title">Technical skills</h2>
+      </div>
+    </div>
+
+    <div class="skills">
+      {%- for g in site.data.skills -%}
+      <div class="skills__group">
+        <h3>{{ g.group }}</h3>
+        <ul class="skills__list">
+          {%- for item in g.items -%}<li class="chip">{{ item }}</li>{%- endfor -%}
+        </ul>
+      </div>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <div class="page__cta" style="padding-bottom: var(--space-8);">
+    <a class="button" href="{{ '/files/Pouya_Ghahramanian_cv.pdf' | relative_url }}">
+      {% include icon.html name="pdf" %} Download CV (PDF)
+    </a>
+    <a class="button button--ghost" href="{{ '/cv/' | relative_url }}">Full CV</a>
+  </div>
+</div>

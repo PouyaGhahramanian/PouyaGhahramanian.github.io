@@ -1,24 +1,57 @@
-{% include base_path %}
+<footer class="colophon">
+  <div class="wrap colophon__inner">
+    <div class="colophon__block">
+      <p class="colophon__lede">
+        Currently at <strong>Bilkent University</strong> (BilIR) and <strong>Invent.ai</strong>,
+        in {{ site.author.location }}.
+      </p>
+      <p class="colophon__note">
+        Open to conversations about streaming ML, drift, and forecasting in production.
+      </p>
+    </div>
 
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
-    {% if site.twitter.username %}
-      <li><a href="https://twitter.com/{{ site.twitter.username }}"><i class="fab fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
-    {% endif %}
-    {% if site.facebook.username %}
-      <li><a href="https://facebook.com/{{ site.facebook.username }}"><i class="fab fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
-    {% endif %}
-    {% if site.author.github %}
-      <li><a href="http://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-    {% endif %}
-    {% if site.author.bitbucket %}
-      <li><a href="http://bitbucket.org/{{ site.author.bitbucket }}"><i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
-    {% endif %}
-    <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-  </ul>
-</div>
+    <nav class="colophon__links" aria-label="Elsewhere">
+      <h2 class="colophon__label">Elsewhere</h2>
+      <ul>
+        <li>
+          <a href="mailto:{{ site.author.email }}">
+            {% include icon.html name="email" class="icon icon--sm" %}<span>Email</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ site.author.scholar }}" rel="me noopener">
+            {% include icon.html name="scholar" class="icon icon--sm" %}<span>Google Scholar</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/{{ site.author.github }}" rel="me noopener">
+            {% include icon.html name="github" class="icon icon--sm" %}<span>GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" rel="me noopener">
+            {% include icon.html name="linkedin" class="icon icon--sm" %}<span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+    <nav class="colophon__links" aria-label="Site">
+      <h2 class="colophon__label">This site</h2>
+      <ul>
+        {%- for item in site.data.navigation.main -%}
+        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {%- endfor -%}
+        <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="wrap colophon__baseline">
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+    <p class="colophon__built">
+      <a href="https://github.com/{{ site.repository }}">Source</a>
+      · Jekyll · Build {{ site.time | date: '%Y-%m-%d' }}
+    </p>
+  </div>
+</footer>

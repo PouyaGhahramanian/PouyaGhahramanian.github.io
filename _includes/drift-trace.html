@@ -1,0 +1,47 @@
+{%- comment -%}
+The site's one ornament, and it is also a claim: a reference trace (cool) and an
+adapted trace (amber) running together until a drift point, after which the
+reference decays and the adapted trace recovers. It is a picture of the exact
+thing the research is about — so it earns the right to repeat as a section rule.
+
+Purely decorative, hence aria-hidden. The draw animation is suppressed under
+prefers-reduced-motion in _home.scss.
+{%- endcomment -%}
+<svg class="drift {{ include.class }}" viewBox="0 0 1200 120" preserveAspectRatio="none"
+     role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="drift-fade-{{ include.id | default: 'a' }}" x1="0" x2="1" y1="0" y2="0">
+      {%- comment -%}
+      White, not currentColor: SVG masks are luminance-based, so a near-black
+      currentColor (light mode) would mask the whole trace away.
+      {%- endcomment -%}
+      <stop offset="0"    stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.12" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="0.88" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="1"    stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="drift-mask-{{ include.id | default: 'a' }}">
+      <rect width="1200" height="120" fill="url(#drift-fade-{{ include.id | default: 'a' }})"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#drift-mask-{{ include.id | default: 'a' }})">
+    <!-- the stream, before and after the change point -->
+    <path class="drift__ref" pathLength="1"
+          d="M0 66 C 40 60, 70 72, 110 64 S 180 56, 220 66 S 290 74, 330 62
+             S 400 58, 440 68 S 510 70, 560 60 S 620 74, 660 88
+             S 730 104, 800 108 S 900 112, 1000 113 S 1120 114, 1200 114"/>
+
+    <!-- the adapted trace: same history, different future -->
+    <path class="drift__adapt" pathLength="1"
+          d="M660 88 C 700 78, 730 60, 780 52 S 860 46, 920 50
+             S 1030 56, 1100 52 S 1160 48, 1200 50"/>
+
+    <!-- the change point -->
+    <line class="drift__marker" x1="660" y1="24" x2="660" y2="104"/>
+    <circle class="drift__dot" cx="660" cy="88" r="3.5"/>
+    {%- if include.label -%}
+    <text class="drift__label" x="672" y="20">drift</text>
+    {%- endif -%}
+  </g>
+</svg>

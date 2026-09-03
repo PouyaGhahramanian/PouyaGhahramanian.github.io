@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Peer-reviewed</span>
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {% if page.standfirst %}<p class="page-head__standfirst">{{ page.standfirst }}</p>{% endif %}
+    <p class="page__cta">
+      <a class="button button--ghost" href="{{ site.author.scholar }}">
+        {% include icon.html name="scholar" %} Google Scholar
+      </a>
+    </p>
+  </div>
+</header>
+
+<div class="wrap">
+  {%- assign pubs = site.publications | sort: "date" | reverse -%}
+  {%- assign live = pubs | where_exp: "p", "p.status != 'under_review'" -%}
+  {%- assign review = pubs | where: "status", "under_review" -%}
+
+  {%- if review.size > 0 -%}
+  <section class="section section--tight">
+    <div class="section__head">
+      <div><span class="eyebrow">In submission</span></div>
+    </div>
+    <ol class="biblio">
+      {%- for pub in review -%}{% include biblio-item.html pub=pub %}{%- endfor -%}
+    </ol>
+  </section>
+  {%- endif -%}
+
+  <section class="section section--tight">
+    <div class="section__head">
+      <div><span class="eyebrow">Published</span></div>
+    </div>
+    <ol class="biblio">
+      {%- for pub in live -%}{% include biblio-item.html pub=pub %}{%- endfor -%}
+    </ol>
+  </section>
+</div>

@@ -1,0 +1,32 @@
+- degree: "Ph.D. in Computer Engineering"
+  short: "PhD"
+  org: "Bilkent University"
+  location: "Ankara, Türkiye"
+  start: "2022"
+  end: "Expected 2027"
+  current: true
+  advisor: "Prof. Fazlı Can"
+  group: "Bilkent Information Retrieval Group (BilIR)"
+  notes:
+    - "Research: machine learning on large-scale data streams — classification, anomaly detection, concept-drift adaptation, and LLM / time-series foundation model adaptation."
+    - "Member of the Bilkent Information Retrieval Group (BilIR)."
+
+- degree: "M.Sc. in Computer Engineering"
+  short: "MSc"
+  org: "Bilkent University"
+  location: "Ankara, Türkiye"
+  start: "2019"
+  end: "2022"
+  thesis: "Evolving Text Stream Classification with a Novel Neural Ensemble Architecture"
+  thesis_url: "http://repository.bilkent.edu.tr/handle/11693/76860"
+  notes:
+    - "Thesis published in ACM TKDD."
+
+- degree: "B.Sc. in Computer Engineering"
+  short: "BSc"
+  org: "Iran University of Science and Technology"
+  location: "Tehran, Iran"
+  start: "2013"
+  end: "2018"
+  thesis: "Driver Drowsiness Detection using Raspberry Pi"
+  thesis_advisor: "Prof. Behrouz Minaei"

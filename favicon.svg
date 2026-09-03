@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Pouya Ghahramanian">
+  <title>Pouya Ghahramanian</title>
+  <rect width="512" height="512" rx="112" fill="#06080E"/>
+
+  <!-- A stream that drifts: at the change point the reference decays (blue) and
+       the adapted trace recovers (amber). Weighted to stay legible at 16px. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 256 C 116 232, 156 280, 208 256"
+          stroke="#7FB8F0" stroke-width="52"/>
+    <path d="M208 256 C 280 244, 300 404, 448 424"
+          stroke="#41628A" stroke-width="52"/>
+    <path d="M208 256 C 280 244, 300 108, 448 88"
+          stroke="#F2A65A" stroke-width="58"/>
+  </g>
+
+  <circle cx="208" cy="256" r="42" fill="#06080E"/>
+  <circle cx="208" cy="256" r="24" fill="#F2A65A"/>
+</svg>

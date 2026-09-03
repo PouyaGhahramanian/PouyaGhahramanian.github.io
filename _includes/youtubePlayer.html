@@ -1,24 +1,12 @@
-<style type="text/css">
-  .embed-youtube {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 25px;
-    height: 0;
-  }
-
-.embed-youtube iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
-<div class="embed-youtube">
-<iframe src="https://www.youtube.com/embed/{{ include.id }}"
-    width="560"
-    height="315"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
+{%- comment -%}
+Responsive YouTube embed. Uses youtube-nocookie and lazy loading so a post that
+merely mentions a video does not ship a tracker on first paint.
+{%- endcomment -%}
+<div class="video-embed">
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}"
+          title="{{ include.title | default: 'Embedded video' }}"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
 </div>

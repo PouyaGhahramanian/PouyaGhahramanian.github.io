@@ -1,18 +1,104 @@
 /* ==========================================================================
-   PRINT STYLES
-   ========================================================================== */
+   Print
 
-/*
-   Hide the following elements on print
+   The CV and publication pages are things people actually print or save to
+   PDF, so this is a real stylesheet rather than a token gesture: force the
+   light palette, drop the furniture, and expose link targets.
    ========================================================================== */
 
 @media print {
+  :root {
+    --paper:        #ffffff;
+    --surface:      #ffffff;
+    --surface-hi:   #ffffff;
+    --wash:         #ffffff;
+    --ink:          #000000;
+    --ink-muted:    #222222;
+    --ink-faint:    #444444;
+    --accent:       #000000;
+    --accent-hi:    #000000;
+    --accent-cool:  #222222;
+    --link-visited: #000000;
+    --rule:        #00000033;
+    --rule-strong: #00000066;
+    --glow-warm: transparent;
+    --glow-cool: transparent;
+    --shadow-1: none;
+    --shadow-2: none;
+  }
+
+  @page {
+    margin: 18mm 16mm;
+  }
+
+  body {
+    background: #fff;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  body::before,
   .masthead,
-  .toc,
-  .page__share,
-  .page__related,
-  .ads,
-  .page__footer {
-    display: none;
+  .colophon,
+  .skip-link,
+  .drift,
+  .page__cta,
+  .cv-download,
+  .section__more,
+  .post-nav,
+  .hero__actions {
+    display: none !important;
+  }
+
+  /* Never let a reveal animation leave the page blank on paper. */
+  .will-reveal,
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .wrap {
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .section,
+  .cv-section {
+    padding-block: 0 12pt;
+    break-inside: avoid;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  /* Expose the destination — a printed link is otherwise dead. */
+  .biblio__links a[href^="http"]::after,
+  .prose a[href^="http"]::after {
+    content: " <" attr(href) ">";
+    font-family: var(--font-mono);
+    font-size: 8pt;
+    word-break: break-all;
+    color: #444;
+  }
+
+  .biblio__item,
+  .timeline__item,
+  .post-row {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+
+  .hero__portrait {
+    max-width: 32mm;
+  }
+
+  .chip {
+    border-color: #00000066;
   }
 }

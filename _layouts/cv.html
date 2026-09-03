@@ -1,0 +1,145 @@
+---
+layout: default
+---
+{%- assign months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," -%}
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">{{ site.author.location }}</span>
+    <h1 class="page-head__title">{{ page.title }}</h1>
+    {% if page.standfirst %}<p class="page-head__standfirst">{{ page.standfirst }}</p>{% endif %}
+
+    <div class="cv-download">
+      <a class="button" href="{{ page.pdf | relative_url }}">
+        {% include icon.html name="pdf" %} Download as PDF
+      </a>
+      <span class="cv-download__note">
+        Last updated {{ site.time | date: "%B %Y" }}
+      </span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- Education -->
+  <section class="cv-section">
+    <h2 class="cv-section__title">Education</h2>
+    <ol class="timeline">
+      {%- for ed in site.data.education -%}
+      <li class="timeline__item">
+        <div class="timeline__when">{{ ed.start }} — {{ ed.end }}</div>
+        <div>
+          <h3 class="timeline__role">{{ ed.degree }}</h3>
+          <p class="timeline__org">{{ ed.org }} · {{ ed.location }}</p>
+          {%- if ed.advisor -%}<p class="biblio__note">Advisor: {{ ed.advisor }} · {{ ed.group }}</p>{%- endif -%}
+          {%- if ed.thesis -%}
+          <p class="biblio__note">Thesis: <em>{{ ed.thesis }}</em>{% if ed.thesis_url %} · <a href="{{ ed.thesis_url }}">repository</a>{% endif %}</p>
+          {%- endif -%}
+        </div>
+      </li>
+      {%- endfor -%}
+    </ol>
+  </section>
+
+  <!-- Experience -->
+  <section class="cv-section">
+    <h2 class="cv-section__title">Experience</h2>
+    <ol class="timeline">
+      {%- for job in site.data.experience -%}
+      <li class="timeline__item">
+        <div class="timeline__when">
+          {%- assign s = job.start | split: "-" -%}
+          {%- assign mi = s[1] | plus: 0 | minus: 1 -%}
+          {{ months[mi] }} {{ s[0] }} &ndash;&nbsp;
+          {%- if job.end -%}
+            {%- assign e = job.end | split: "-" -%}
+            {%- assign emi = e[1] | plus: 0 | minus: 1 -%}
+            {{ months[emi] }} {{ e[0] }}
+          {%- else -%}
+            {{ job.end_label }}
+          {%- endif -%}
+        </div>
+        <div>
+          <h3 class="timeline__role">{{ job.role }}{% if job.role_note %} <span class="chip">{{ job.role_note }}</span>{% endif %}</h3>
+          <p class="timeline__org">{{ job.org }} · {{ job.location }}</p>
+          <ul class="timeline__points">
+            {%- for point in job.highlights -%}<li>{{ point }}</li>{%- endfor -%}
+          </ul>
+        </div>
+      </li>
+      {%- endfor -%}
+    </ol>
+  </section>
+
+  <!-- Publications -->
+  <section class="cv-section">
+    <h2 class="cv-section__title">Publications</h2>
+    <ol class="biblio">
+      {%- assign pubs = site.publications | sort: "date" | reverse -%}
+      {%- for pub in pubs -%}{% include biblio-item.html pub=pub %}{%- endfor -%}
+    </ol>
+  </section>
+
+  <!-- Skills -->
+  <section class="cv-section">
+    <h2 class="cv-section__title">Technical skills</h2>
+    <div class="skills">
+      {%- for g in site.data.skills -%}
+      <div class="skills__group">
+        <h3>{{ g.group }}</h3>
+        <ul class="skills__list">
+          {%- for item in g.items -%}<li class="chip">{{ item }}</li>{%- endfor -%}
+        </ul>
+      </div>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section class="cv-section">
+    <h2 class="cv-section__title">Awards &amp; scholarships</h2>
+    <dl class="def-list">
+      {%- for a in site.data.awards -%}
+      <dt>{{ a.year }}</dt>
+      <dd><strong>{{ a.title }}</strong>{% if a.detail %} — {{ a.detail }}{% endif %}</dd>
+      {%- endfor -%}
+    </dl>
+  </section>
+
+  <!-- Service -->
+  <section class="cv-section">
+    <h2 class="cv-section__title">Professional service</h2>
+    <dl class="def-list">
+      <dt>Conference reviewer</dt>
+      <dd>
+        {%- for r in site.data.service.reviewer -%}
+        {{ r.venue }} ({{ r.years }}){% unless forloop.last %} · {% endunless %}
+        {%- endfor -%}
+      </dd>
+    </dl>
+  </section>
+
+  <!-- Languages -->
+  <section class="cv-section">
+    <h2 class="cv-section__title">Languages</h2>
+    <dl class="def-list">
+      {%- for l in site.data.languages -%}
+      <dt>{{ l.name }}</dt>
+      <dd>{{ l.level }}{% if l.detail %} — {{ l.detail }}{% endif %}</dd>
+      {%- endfor -%}
+    </dl>
+  </section>
+
+  <!-- Contact -->
+  <section class="cv-section">
+    <h2 class="cv-section__title">Contact</h2>
+    <dl class="def-list">
+      <dt>Email</dt><dd><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></dd>
+      <dt>Scholar</dt><dd><a href="{{ site.author.scholar }}">Google Scholar</a></dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/{{ site.author.github }}">{{ site.author.github }}</a></dd>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">{{ site.author.linkedin }}</a></dd>
+    </dl>
+  </section>
+
+  {{ content }}
+</div>

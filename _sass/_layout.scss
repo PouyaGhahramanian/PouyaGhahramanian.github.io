@@ -1,0 +1,298 @@
+/* ==========================================================================
+   Layout — wrap, masthead, footer
+   ========================================================================== */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+
+  @media (min-width: 60rem) {
+    padding-inline: var(--space-7);
+  }
+}
+
+.main {
+  min-height: 60vh;
+}
+
+/* --------------------------------------------------------------- masthead */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+
+  &.is-scrolled {
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom-color: var(--rule);
+  }
+}
+
+.masthead__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  min-height: 4.5rem;
+}
+
+.masthead__name {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  text-decoration: none;
+  color: var(--ink);
+  line-height: 1.2;
+
+  &:hover .masthead__name-full {
+    color: var(--accent);
+  }
+}
+
+.masthead__name-full {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  transition: color 0.14s var(--ease);
+}
+
+.masthead__name-role {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.masthead__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin: 0;
+
+  a {
+    position: relative;
+    display: block;
+    padding-block: var(--space-2);
+    font-size: 0.9375rem;
+    color: var(--ink-muted);
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s var(--ease);
+    }
+
+    &:hover {
+      color: var(--ink);
+    }
+
+    &:hover::after,
+    &[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+
+    &[aria-current="page"] {
+      color: var(--ink);
+    }
+  }
+}
+
+.masthead__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.theme-toggle,
+.nav-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.375rem;
+  height: 2.375rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  transition: color 0.14s var(--ease), border-color 0.14s var(--ease), background-color 0.14s var(--ease);
+
+  &:hover {
+    color: var(--ink);
+    border-color: var(--rule-strong);
+    background: var(--surface);
+  }
+}
+
+/* Exactly one icon is visible at a time. Every rule below targets the icon
+   class directly so the state selectors can out-specify the default. */
+.theme-toggle__sun,
+.theme-toggle__moon,
+.nav-toggle__open,
+.nav-toggle__close { display: none; }
+
+/* Show the icon for the theme you would switch *to*. */
+.theme-toggle__sun { display: contents; }
+.nav-toggle__open  { display: contents; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle__sun  { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle__moon { display: contents; }
+}
+
+:root[data-theme="dark"] .theme-toggle__sun  { display: none; }
+:root[data-theme="dark"] .theme-toggle__moon { display: contents; }
+
+:root[data-theme="light"] .theme-toggle__sun  { display: contents; }
+:root[data-theme="light"] .theme-toggle__moon { display: none; }
+
+.nav-toggle {
+  display: none;
+}
+
+/* --- mobile nav -------------------------------------------------------- */
+
+@media (max-width: 52rem) {
+  .nav-toggle {
+    display: grid;
+  }
+
+  .masthead__nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: var(--shadow-2);
+    display: none;
+  }
+
+  .masthead.is-open {
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(12px);
+
+    .masthead__nav {
+      display: block;
+    }
+
+  }
+
+  .masthead.is-open .nav-toggle__open  { display: none; }
+  .masthead.is-open .nav-toggle__close { display: contents; }
+
+  .masthead__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-3) var(--space-5) var(--space-5);
+
+    a {
+      padding-block: var(--space-3);
+      font-size: 1.0625rem;
+      border-bottom: 1px solid var(--rule);
+
+      &::after { display: none; }
+
+      &[aria-current="page"] {
+        color: var(--accent);
+      }
+    }
+
+    li:last-child a {
+      border-bottom: 0;
+    }
+  }
+}
+
+/* --------------------------------------------------------------- colophon */
+
+.colophon {
+  margin-top: var(--space-10);
+  border-top: 1px solid var(--rule);
+  background: var(--surface);
+  padding-block: var(--space-8) var(--space-6);
+}
+
+.colophon__inner {
+  display: grid;
+  gap: var(--space-7);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 46rem) {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.colophon__lede {
+  font-family: var(--font-serif);
+  font-size: var(--step-2);
+  line-height: 1.32;
+  max-width: 24ch;
+
+  strong { font-weight: 400; color: var(--accent); }
+}
+
+.colophon__note {
+  margin-top: var(--space-3);
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+  max-width: 34ch;
+}
+
+.colophon__label {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: var(--space-3);
+}
+
+.colophon__links ul {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.colophon__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--ink-muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.colophon__baseline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--ink-faint);
+
+  a { color: var(--ink-faint); }
+  a:hover { color: var(--accent); }
+}

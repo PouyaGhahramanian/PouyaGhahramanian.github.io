@@ -1,23 +1,35 @@
-{% include base_path %}
+<header class="masthead" id="masthead">
+  <div class="masthead__inner wrap">
+    <a class="masthead__name" href="{{ '/' | relative_url }}">
+      <span class="masthead__name-full">{{ site.author.name }}</span>
+      <span class="masthead__name-role">{{ site.author.role }}</span>
+    </a>
 
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-              {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
+    <nav class="masthead__nav" aria-label="Primary">
+      <ul class="masthead__list" id="nav-list">
+        {%- for item in site.data.navigation.main -%}
+        {%- assign here = false -%}
+        {%- if page.url == item.url -%}{%- assign here = true -%}{%- endif -%}
+        {%- if item.url != "/" and page.url contains item.url -%}{%- assign here = true -%}{%- endif -%}
+        <li>
+          <a href="{{ item.url | relative_url }}"{% if here %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <button class="theme-toggle" id="theme-toggle" type="button"
+              aria-label="Switch to dark theme" title="Switch theme">
+        <span class="theme-toggle__sun">{% include icon.html name="sun" %}</span>
+        <span class="theme-toggle__moon">{% include icon.html name="moon" %}</span>
+      </button>
+
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-list" aria-label="Open menu">
+        <span class="nav-toggle__open">{% include icon.html name="menu" %}</span>
+        <span class="nav-toggle__close">{% include icon.html name="close" %}</span>
+      </button>
     </div>
   </div>
-</div>
+</header>
