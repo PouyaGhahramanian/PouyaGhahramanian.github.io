@@ -7,8 +7,8 @@ description      : >-
   Pouya Ghahramanian is a PhD researcher at Bilkent University working on
   machine learning for large-scale data streams — concept-drift adaptation,
   online learning, and continual adaptation of large language and time-series
-  foundation models — and a data scientist building production forecasting
-  systems at Invent.ai.
+  foundation models — and a data scientist building production demand
+  forecasting systems.
 url              : "https://pouya.ai"
 baseurl          : ""
 repository       : "PouyaGhahramanian/PouyaGhahramanian.github.io"
@@ -24,7 +24,7 @@ author:
   short_name     : "Pouya"
   avatar         : "/images/pouya.jpg"
   role           : "PhD Researcher · Data Scientist"
-  affiliation    : "Bilkent University · Invent.ai"
+  affiliation    : "Bilkent University"
   location       : "Ankara, Türkiye"
   email          : "pouyaghahramanian@gmail.com"
   github         : "PouyaGhahramanian"

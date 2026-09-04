@@ -18,11 +18,14 @@
   align-items: center;
 
   @media (min-width: 62rem) {
-    /* A fixed track for the plate: `auto` lets the image claim its intrinsic
-       960px and crushes the text column. */
-    grid-template-columns: minmax(0, 1fr) var(--plate);
+    /* A fixed track for the plate: `auto` would let the image claim its
+       intrinsic width and crush the text column. */
+    grid-template-columns: var(--plate) minmax(0, 1fr);
     gap: var(--space-9);
-    align-items: start;
+    align-items: center;
+
+    .hero__text     { grid-area: 1 / 2; }
+    .hero__portrait { grid-area: 1 / 1; }
   }
 }
 
@@ -44,15 +47,6 @@
   text-wrap: pretty;
 }
 
-.hero__secondary {
-  margin-top: var(--space-4);
-  color: var(--ink-faint);
-  max-width: 48ch;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  text-wrap: pretty;
-}
-
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -71,10 +65,6 @@
   justify-self: start;
   width: min(100%, var(--plate));
   margin: 0;
-
-  @media (min-width: 62rem) {
-    justify-self: end;
-  }
 }
 
 .hero__plate {
@@ -93,18 +83,6 @@
   height: auto;
   display: block;
   border-radius: 50%;
-}
-
-.hero__caption {
-  display: block;
-  margin-top: calc(var(--space-5) + var(--space-2));
-  font-family: var(--font-mono);
-  font-size: var(--step--2);
-  line-height: 1.5;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  text-align: center;
 }
 
 /* --- the drift trace --------------------------------------------------- */

@@ -5,11 +5,14 @@ layout: default
 <section class="hero">
   <div class="wrap">
     <div class="hero__grid">
+      {%- comment -%}
+      Text first in source order so a phone leads with the headline; on wide
+      viewports the grid places the portrait in the left column.
+      {%- endcomment -%}
       <div class="hero__text">
         <span class="eyebrow">{{ page.hero.eyebrow }}</span>
         <h1 class="hero__headline">{{ page.hero.headline }}</h1>
         <p class="hero__standfirst">{{ page.hero.standfirst }}</p>
-        <p class="hero__secondary">{{ page.hero.secondary }}</p>
 
         <div class="hero__actions">
           <a class="button" href="{{ '/publications/' | relative_url }}">
@@ -25,13 +28,9 @@ layout: default
       <figure class="hero__portrait">
         <span class="hero__plate">
           <img src="{{ site.author.avatar | relative_url }}"
-               alt="Pouya Ghahramanian, at the LLM-OFA poster session"
-               width="900" height="900"
+               alt="Pouya Ghahramanian" width="900" height="900"
                fetchpriority="high" decoding="async">
         </span>
-        <figcaption class="hero__caption">
-          At the <a href="{{ '/publications/llm-ofa/' | relative_url }}">LLM-OFA</a> poster
-        </figcaption>
       </figure>
     </div>
 
@@ -39,12 +38,11 @@ layout: default
   </div>
 </section>
 
-{%- comment -%} Research threads — the definition list that says what I work on. {%- endcomment -%}
 <section class="section" data-reveal>
   <div class="wrap">
     <div class="section__head">
       <div>
-        <span class="eyebrow">01 — Research</span>
+        <span class="eyebrow">Research</span>
         <h2 class="section__title">Three strands, one question</h2>
       </div>
       <a class="section__more" href="{{ '/research/' | relative_url }}">
@@ -64,14 +62,13 @@ layout: default
   </div>
 </section>
 
-{%- comment -%} Selected publications, newest first. {%- endcomment -%}
 {%- assign featured = site.publications | where: "featured", true | sort: "date" | reverse -%}
 <section class="section" data-reveal>
   <div class="wrap">
     <div class="section__head">
       <div>
-        <span class="eyebrow">02 — Selected publications</span>
-        <h2 class="section__title">Peer-reviewed work</h2>
+        <span class="eyebrow">Selected work</span>
+        <h2 class="section__title">Peer-reviewed publications</h2>
       </div>
       <a class="section__more" href="{{ '/publications/' | relative_url }}">
         All publications {% include icon.html name="arrow" %}
@@ -83,45 +80,5 @@ layout: default
         {% include biblio-item.html pub=pub %}
       {%- endfor -%}
     </ol>
-  </div>
-</section>
-
-{%- comment -%} Headline numbers from the papers, not from the day job. {%- endcomment -%}
-<section class="section" data-reveal>
-  <div class="wrap">
-    <div class="section__head">
-      <div>
-        <span class="eyebrow">03 — Results</span>
-        <h2 class="section__title">What the work moved</h2>
-      </div>
-    </div>
-
-    <div class="stats">
-      {%- for m in page.metrics -%}
-      <div class="stat">
-        <div class="stat__figure">{{ m.figure }}</div>
-        <div class="stat__label">{{ m.label }}</div>
-        <div class="stat__note">{{ m.note }}</div>
-      </div>
-      {%- endfor -%}
-    </div>
-  </div>
-</section>
-
-<section class="section" data-reveal>
-  <div class="wrap">
-    <div class="section__head">
-      <div>
-        <span class="eyebrow">04 — Currently</span>
-        <h2 class="section__title">Two desks</h2>
-      </div>
-      <a class="section__more" href="{{ '/experience/' | relative_url }}">
-        Full experience {% include icon.html name="arrow" %}
-      </a>
-    </div>
-
-    <div class="home-intro prose">
-      {{ content }}
-    </div>
   </div>
 </section>

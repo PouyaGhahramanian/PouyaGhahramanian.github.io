@@ -1,7 +1,8 @@
 # pouya.ai
 
 Personal site of Pouya Ghahramanian — PhD researcher in machine learning for
-data streams (Bilkent University, BilIR) and data scientist at Invent.ai.
+data streams (Bilkent University, BilIR), and a data scientist building
+production demand forecasting systems.
 
 Jekyll 4, hand-written SCSS, no framework and no JS dependencies.
 
@@ -53,7 +54,7 @@ Content is data, not markup. Editing these files is all that routine updates nee
 | `_publications/*.md` | One file per paper — venue, authors, links, `result:` line |
 | `_pages/about.md` | Homepage hero, research threads, headline metrics |
 | `_pages/research.md` | The long-form research narrative |
-| `_posts/` | Writing |
+| `_posts/` | Blog posts |
 | `files/Pouya_Ghahramanian_cv.pdf` | The downloadable CV |
 
 `/experience/`, `/cv/` and the publication lists are all generated from the same

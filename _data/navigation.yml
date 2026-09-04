@@ -5,7 +5,7 @@ main:
     url: "/publications/"
   - title: "Experience"
     url: "/experience/"
-  - title: "Writing"
+  - title: "Blog"
     url: "/blog/"
   - title: "CV"
     url: "/cv/"

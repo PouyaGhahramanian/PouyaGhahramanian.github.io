@@ -273,50 +273,6 @@ a.chip:hover {
   margin-top: var(--space-4);
 }
 
-/* ------------------------------------------------------------- stat strip */
-
-.stats {
-  display: grid;
-  gap: 1px;
-  grid-template-columns: minmax(0, 1fr);
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  overflow: hidden;
-
-  @media (min-width: 42rem) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.stat {
-  background: var(--surface-hi);
-  padding: var(--space-5) var(--space-5) var(--space-6);
-}
-
-.stat__figure {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 2.875rem);
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-  color: var(--accent);
-}
-
-.stat__label {
-  margin-top: var(--space-3);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.stat__note {
-  margin-top: var(--space-1);
-  font-family: var(--font-mono);
-  font-size: var(--step--2);
-  line-height: 1.45;
-  color: var(--ink-faint);
-}
-
 /* --------------------------------------------------------- research rails */
 
 .threads {
