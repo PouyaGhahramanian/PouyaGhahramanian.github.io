@@ -9,7 +9,7 @@ description      : >-
   online learning, and continual adaptation of large language and time-series
   foundation models — and a data scientist building production forecasting
   systems at Invent.ai.
-url              : "https://ghrmn.com"
+url              : "https://pouya.ai"
 baseurl          : ""
 repository       : "PouyaGhahramanian/PouyaGhahramanian.github.io"
 locale           : "en-US"
@@ -111,9 +111,9 @@ defaults:
 include:
   - _pages
   - files
-  - .well-known
 
 exclude:
+  - docs
   - Gemfile
   - Gemfile.lock
   - LICENSE

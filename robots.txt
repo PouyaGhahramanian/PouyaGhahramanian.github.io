@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ghrmn.com/sitemap.xml
+Sitemap: https://pouya.ai/sitemap.xml

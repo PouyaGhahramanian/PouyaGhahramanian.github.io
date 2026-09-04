@@ -1,4 +1,4 @@
-# ghrmn.com
+# pouya.ai
 
 Personal site of Pouya Ghahramanian — PhD researcher in machine learning for
 data streams (Bilkent University, BilIR) and data scientist at Invent.ai.
@@ -36,8 +36,9 @@ which the legacy `github-pages` metagem could not offer.
 > legacy branch build and this workflow's deploy step will fail while the live
 > site stays up.
 
-See [`docs/domains-and-https.md`](docs/domains-and-https.md) for the domain and
-HTTPS setup, including the `Enforce HTTPS` fix and the `p0uya.com` redirect.
+See [`docs/domains-and-https.md`](docs/domains-and-https.md) for the domain, DNS
+and HTTPS setup — the Cloudflare record set, why `pouya.ai` must stay DNS-only,
+and the `ghrmn.com` redirect runbook. That file is excluded from the build.
 
 ## Where the content lives
 
