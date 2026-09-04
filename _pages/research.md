@@ -63,19 +63,6 @@ supervision is *delayed* — a forecast's true value only arrives much later, so
 the model has to decide how to adapt before it knows whether it was right. That
 is where most of my current work sits. More on it once it is through review.
 
----
-
-## Where this gets tested
-
-Working at [Invent.ai](https://invent.ai) is the honest version of an ablation
-study. Demand forecasting across roughly a million SKU-store pairs is a drifting
-stream with consequences: promotions, stockouts, seasonality and supply shocks
-all move the distribution, and the evaluation loop is a real replenishment
-decision rather than a held-out split.
-
-Most of what I believe about backtesting design, holdout construction and drift
-monitoring came from that side of the desk rather than from the literature.
-
 <p class="page__cta">
   <a class="button" href="{{ '/publications/' | relative_url }}">Full publication list</a>
   <a class="button button--ghost" href="{{ site.author.scholar }}">Google Scholar</a>
