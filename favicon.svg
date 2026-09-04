@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Pouya Ghahramanian">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"
+     role="img" aria-label="Pouya Ghahramanian">
   <title>Pouya Ghahramanian</title>
-  <rect width="512" height="512" rx="112" fill="#0E0F12"/>
-  <!-- The drift trace reduced to one mark: a signal running flat, then turning.
-       Weighted to stay legible at 16px on both light and dark browser chrome. -->
-  <path d="M104 340 H 244 L 408 176"
-        fill="none" stroke="#D9A441" stroke-width="62"
-        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- "Open Return": one unbroken line travels a full turn and comes back
+       alongside its own start, but on a tighter radius, so it can never land
+       where it began. A cycle that refuses to close — every pass repeats the
+       motion, none repeats the position. -->
+<rect width="512" height="512" rx="112" fill="#0E0F12"/>
+  <path d="M230 112 A144 144 0 0 1 230 400 A92 92 0 0 1 230 216" fill="none" stroke="#D9A441" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
