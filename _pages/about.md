@@ -48,7 +48,7 @@ threads:
     definition: >-
       Keeping large language and time-series foundation models current under
       temporal drift and delayed supervision.
-    work: "LLM-OFA · CoSign"
+    work: "LLM-OFA"
 metrics:
   - figure: "8.8%"
     label: "accuracy gain"
@@ -56,9 +56,9 @@ metrics:
   - figure: "63.5%"
     label: "lower detection delay"
     note: "LACE, at a 0% missed-detection rate"
-  - figure: "1st"
-    label: "of 15 streaming optimizers"
-    note: "CoSign, across 17 datasets"
+  - figure: "2 decades"
+    label: "of news, continually adapted"
+    note: "LLM-OFA, ACM CIKM 2025"
 ---
 
 ## Currently

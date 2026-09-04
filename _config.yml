@@ -22,7 +22,7 @@ timezone         : "Europe/Istanbul"
 author:
   name           : "Pouya Ghahramanian"
   short_name     : "Pouya"
-  avatar         : "/images/profile.jpg"
+  avatar         : "/images/pouya.jpg"
   role           : "PhD Researcher · Data Scientist"
   affiliation    : "Bilkent University · Invent.ai"
   location       : "Ankara, Türkiye"

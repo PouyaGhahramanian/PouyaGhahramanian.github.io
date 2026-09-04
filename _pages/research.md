@@ -58,11 +58,10 @@ them than for a small online classifier.
 and an optimizer called **Adaptimizer** for continually adapting large language
 models under temporal drift, evaluated across two decades of news.
 
-**CoSign** (under review, AAAI 2027) carries the idea to time-series foundation
-models. It adapts a model's LoRA weights under *delayed supervision* — the
-realistic setting where a prediction's label only arrives much later — using a
-dual-timescale co-signed consensus rule. It ranks **first against 14 streaming
-optimizers across 17 datasets**.
+The same question is now open for **time-series foundation models**, where the
+supervision is *delayed* — a forecast's true value only arrives much later, so
+the model has to decide how to adapt before it knows whether it was right. That
+is where most of my current work sits. More on it once it is through review.
 
 ---
 

@@ -62,10 +62,9 @@
 
 /* --- portrait ------------------------------------------------------------
 
-   Held to a hard ceiling. A near-black night portrait punches a hole in warm
-   paper as it grows, so it sits inside a hairline plate at plate-width rather
-   than running as a hero image. In dark mode the photo's own sky is the page
-   ground, so the lower edge is dissolved into it instead of cut.
+   The source is a square illustration with a baked circular vignette and
+   OPAQUE BLACK CORNERS (no alpha), so it is clipped to a circle rather than
+   framed — a rectangular plate would show those corners against warm paper.
    ------------------------------------------------------------------------- */
 
 .hero__portrait {
@@ -81,46 +80,31 @@
 .hero__plate {
   position: relative;
   display: block;
-  padding: var(--space-2);
-  border: 1px solid var(--rule-strong);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  /* The vignette runs to the very edge of the square, so the ring sits just
+     outside it rather than cropping into the illustration. */
+  outline: 1px solid var(--rule-strong);
+  outline-offset: var(--space-3);
 }
 
 .hero__portrait img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 50%;
 }
-
-/* The dissolve. An overlay rather than a mask so it composites against the
-   real page ground and needs no mask-image support. */
-.hero__plate::after {
-  content: "";
-  position: absolute;
-  inset: var(--space-2);
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(var(--ground), 0) 58%,
-    rgba(var(--ground), 0.92) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.2s var(--ease);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .hero__plate::after { opacity: 1; }
-}
-
-:root[data-theme="dark"] .hero__plate::after { opacity: 1; }
 
 .hero__caption {
   display: block;
-  margin-top: var(--space-3);
+  margin-top: calc(var(--space-5) + var(--space-2));
   font-family: var(--font-mono);
   font-size: var(--step--2);
+  line-height: 1.5;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-faint);
+  text-align: center;
 }
 
 /* --- the drift trace --------------------------------------------------- */

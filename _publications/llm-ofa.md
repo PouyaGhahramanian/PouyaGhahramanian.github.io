@@ -13,6 +13,7 @@ result: "2 DECADES OF NEWS · CONTINUAL LLM ADAPTATION"
 excerpt: "An On-the-Fly Adaptation framework and the Adaptimizer optimizer for continually adapting LLMs under temporal drift, evaluated across two decades of news."
 links:
   doi: "https://dl.acm.org/doi/abs/10.1145/3746252.3760846"
+  code: "https://github.com/PouyaGhahramanian/LLM-OFA"
 ---
 
 Language models decay as the world moves on. **LLM-OFA** proposes an On-the-Fly

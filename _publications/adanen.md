@@ -13,6 +13,7 @@ result: "ACCURACY +8.8% · 13 DATASETS · SINGLE-PASS"
 excerpt: "AdaNEN — a neural ensemble for evolving data streams that improves classification accuracy by up to 8.8% across 13 benchmark datasets."
 links:
   doi: "https://dl.acm.org/doi/10.1145/3639054"
+  code: "https://github.com/PouyaGhahramanian/AdaNEN"
   thesis: "http://repository.bilkent.edu.tr/handle/11693/76860"
 ---
 
