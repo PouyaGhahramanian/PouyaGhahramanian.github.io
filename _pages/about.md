@@ -23,9 +23,7 @@ hero:
   standfirst: >-
     PhD researcher at Bilkent University, working with Prof. Fazlı Can on models
     that keep learning after deployment — detecting concept drift, adapting on
-    the fly, and holding accuracy as the distribution moves. Alongside the PhD I
-    build demand forecasting and replenishment models in production, across
-    roughly a million SKU-store pairs.
+    the fly, and holding accuracy as the distribution moves.
 threads:
   - id: drift
     term: "Concept drift"
