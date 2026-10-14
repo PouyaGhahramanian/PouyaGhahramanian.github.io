@@ -132,8 +132,8 @@
 }
 
 .personal-portrait {
-  width: 7rem;
-  height: 7rem;
+  width: 9rem;
+  height: 9rem;
   flex-shrink: 0;
   object-fit: cover;
   object-position: center 29%;
@@ -292,7 +292,7 @@
     text-align: center;
     padding-block: var(--space-5) var(--space-7);
   }
-  .personal-portrait { width: 5.5rem; height: 5.5rem; }
+  .personal-portrait { width: 7rem; height: 7rem; }
   .personal-links { justify-content: center; gap: var(--space-4); }
   .terminal__form {
     flex-wrap: wrap;
