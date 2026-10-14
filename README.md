@@ -52,7 +52,8 @@ Content is data, not markup. Editing these files is all that routine updates nee
 | `_data/skills.yml` | Technical skills, grouped |
 | `_data/awards.yml`, `_data/service.yml`, `_data/languages.yml` | CV tail sections |
 | `_publications/*.md` | One file per paper — venue, authors, links, `result:` line |
-| `_pages/about.md` | Homepage hero, research threads, headline metrics |
+| `_pages/about.md` | Homepage greeting and introduction |
+| `_data/terminal.yml` | Terminal commands and curated replies |
 | `_pages/research.md` | The long-form research narrative |
 | `_posts/` | Blog posts |
 | `files/Pouya_Ghahramanian_cv.pdf` | The downloadable CV |
@@ -74,7 +75,7 @@ date: 2026-01-01             # sorts the list
 venue_short: "ACM CIKM"
 venue_full: "ACM International Conference on Information and Knowledge Management"
 status: "published"          # or "under_review"
-featured: true               # surfaces it on the homepage
+featured: true               # marks selected work
 result: "ACCURACY +8.8% · 13 DATASETS"   # the mono line: the number, pulled forward
 excerpt: "One sentence on what the paper does."
 links:
@@ -87,17 +88,20 @@ Body copy, shown on the paper's own page.
 
 ## Design
 
-Light-first: warm press paper by day, near-black sky by dark. The accent pair —
-burnt ochre and petrol blue — is sampled from the portrait on the homepage, so
-the photograph sits in the page rather than on it. Ochre is the only interactive
-colour; petrol is never a link.
+Dark by default, with a light theme available through the toggle. Saved choices persist.
+The homepage is a short personal introduction, a circular portrait, and an interactive
+terminal with curated replies. Detailed work lives on the research, publications,
+experience, blog, and CV pages.
 
-Two typefaces and no sans-serif: **Newsreader** carries every idea, **IBM Plex
-Mono** carries every piece of apparatus (nav, years, venues, labels, metrics).
+The terminal supports commands and a few common questions, typing animation,
+command history, and autocomplete. Unknown commands show a terminal-style error
+and the available commands. Contact details come from `_config.yml` and paper
+summaries come from `_publications/`; other replies live in `_data/terminal.yml`.
+It runs entirely in the browser and requires no AI service. With JavaScript
+disabled, visitors get ordinary navigation links instead.
 
-The one ornament is the drift trace — a reference signal and an adapted signal
-diverging at a labelled change point. It is a picture of the thing the research
-is actually about, which is why it is allowed to repeat.
+**Newsreader** carries the introduction and prose; **IBM Plex Mono** carries
+navigation, labels, and terminal content. The drift trace remains on inner pages.
 
 Every text colour clears WCAG AA on every surface it is allowed to sit on
 (lowest 4.53:1); every non-text boundary clears 3:1. Links never rely on hue
@@ -110,7 +114,7 @@ _sass/_base.scss        typography and document furniture
 _sass/_layout.scss      wrap, masthead, colophon
 _sass/_components.scss  bibliography, timeline, stats, chips
 _sass/_prose.scss       long-form content and the CV sheet
-_sass/_home.scss        hero, portrait plate, drift trace
+_sass/_home.scss        personal homepage, terminal, drift trace
 _sass/_print.scss       print
 ```
 

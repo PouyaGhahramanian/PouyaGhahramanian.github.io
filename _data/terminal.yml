@@ -1,0 +1,58 @@
+commands:
+  - name: whoami
+    description: a short introduction
+  - name: research
+    description: what I’m working on
+  - name: papers
+    description: selected publications
+  - name: writing
+    description: notes and ideas
+  - name: contact
+    description: email and social links
+  - name: cv
+    description: the longer version
+  - name: help
+    description: show available commands
+  - name: clear
+    description: start fresh
+
+replies:
+  whoami:
+    text: |-
+      Meet Pouya Ghahramanian.
+
+      PhD researcher at Bilkent University.
+      Data scientist working on production forecasting.
+      Curious about models that keep learning
+      after they meet the real world.
+    links:
+      - label: Experience
+        url: /experience/
+  research:
+    text: |-
+      The world changes. Models should keep up.
+
+      My research explores concept drift, online
+      and continual learning, and adapting language
+      and time-series foundation models.
+    links:
+      - label: Explore research
+        url: /research/
+  writing:
+    text: |-
+      A place for ideas that need more than a tweet.
+
+      Notes on changing data, adapting models,
+      and learning when supervision arrives late.
+    links:
+      - label: Read the blog
+        url: /blog/
+  cv:
+    text: |-
+      Looking for the longer version?
+
+      Education, experience, and publications
+      are collected in my CV.
+    links:
+      - label: View CV
+        url: /cv/

@@ -1,9 +1,7 @@
 /* ==========================================================================
    Design tokens
 
-   Light-first: warm press paper is the canonical look, with a dark mode keyed
-   to the near-black night sky of the portrait. The two modes are deliberately
-   opposite in temperature — paper by day, sky by night.
+   Dark by default, with warm press paper available through the theme toggle.
 
    The accent pair is sampled from the portrait itself: burnt ochre from the
    city lights, petrol blue from the cool bokeh. Ochre is the only interactive
@@ -116,8 +114,4 @@
   --ground: 14, 15, 18;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { @include dark-tokens; }
-}
-
-:root[data-theme="dark"] { @include dark-tokens; }
+:root:not([data-theme="light"]) { @include dark-tokens; }

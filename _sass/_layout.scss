@@ -144,16 +144,11 @@
 .theme-toggle__sun { display: contents; }
 .nav-toggle__open  { display: contents; }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle__sun  { display: none; }
-  :root:not([data-theme="light"]) .theme-toggle__moon { display: contents; }
-}
+:root:not([data-theme="light"]) .theme-toggle__sun  { display: contents; }
+:root:not([data-theme="light"]) .theme-toggle__moon { display: none; }
 
-:root[data-theme="dark"] .theme-toggle__sun  { display: none; }
-:root[data-theme="dark"] .theme-toggle__moon { display: contents; }
-
-:root[data-theme="light"] .theme-toggle__sun  { display: contents; }
-:root[data-theme="light"] .theme-toggle__moon { display: none; }
+:root[data-theme="light"] .theme-toggle__sun  { display: none; }
+:root[data-theme="light"] .theme-toggle__moon { display: contents; }
 
 .nav-toggle {
   display: none;

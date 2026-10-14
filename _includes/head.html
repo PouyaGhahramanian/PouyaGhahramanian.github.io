@@ -1,8 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0e0f12" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0e0f12">
+<meta name="color-scheme" content="dark light">
 
 {% seo title=false %}
 <title>{% if page.title and page.url != "/" %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} · {{ site.author.role }}{% endif %}</title>
@@ -18,8 +17,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{{ site.fonts_url }}">
 
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-
 {%- comment -%}
 Applied before first paint so a returning visitor's saved theme does not flash
 the wrong palette. Kept inline and tiny for exactly that reason.
@@ -32,5 +29,10 @@ the wrong palette. Kept inline and tiny for exactly that reason.
         document.documentElement.setAttribute("data-theme", saved);
       }
     } catch (e) {}
+    document.querySelector('meta[name="theme-color"]').setAttribute(
+      "content", document.documentElement.getAttribute("data-theme") === "light" ? "#faf8f5" : "#0e0f12"
+    );
   })();
 </script>
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">

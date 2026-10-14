@@ -8,12 +8,8 @@
 
   var toggle = document.getElementById("theme-toggle");
 
-  function systemPrefersDark() {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
-
   function activeTheme() {
-    return root.getAttribute("data-theme") || (systemPrefersDark() ? "dark" : "light");
+    return root.getAttribute("data-theme") || "dark";
   }
 
   function syncToggleLabel() {
@@ -26,6 +22,9 @@
     toggle.addEventListener("click", function () {
       var next = activeTheme() === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
+      document.querySelector('meta[name="theme-color"]').setAttribute(
+        "content", next === "dark" ? "#0e0f12" : "#faf8f5"
+      );
       try {
         localStorage.setItem("theme", next);
       } catch (e) {
@@ -35,15 +34,6 @@
     });
     syncToggleLabel();
   }
-
-  // Follow the OS only while the visitor has expressed no preference of their own.
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
-    var stored = null;
-    try {
-      stored = localStorage.getItem("theme");
-    } catch (e) {}
-    if (!stored) syncToggleLabel();
-  });
 
   /* ------------------------------------------------------------------ nav */
 

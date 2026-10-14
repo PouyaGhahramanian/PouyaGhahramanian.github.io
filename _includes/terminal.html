@@ -1,0 +1,57 @@
+<section class="personal-terminal" aria-labelledby="terminal-title">
+  <p class="personal-terminal__invitation">Take a look around.</p>
+  <div class="terminal" id="terminal">
+    <div class="terminal__header">
+      <h2 id="terminal-title"><span class="terminal__status" aria-hidden="true"></span>pouya / personal terminal</h2>
+      <button id="terminal-clear" type="button" aria-label="Clear terminal">clear ↺</button>
+    </div>
+    <div class="terminal__body">
+      <p class="terminal__welcome">Hey, welcome! Type <strong>help</strong> to explore.</p>
+      <div class="terminal__output" id="terminal-output" role="region" aria-label="Terminal conversation" tabindex="0"></div>
+      <form id="terminal-form" class="terminal__form" hidden>
+        <label for="terminal-input"><span aria-hidden="true">visitor@pouya ~ $</span><span class="visually-hidden">Enter a command or question</span></label>
+        <input id="terminal-input" placeholder="contact, research, or a question…" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="300" required>
+        <button type="submit" aria-label="Run command">↵</button>
+      </form>
+      <div class="terminal__shortcuts" id="terminal-shortcuts" aria-label="Suggested commands" hidden>
+        {% for command in site.data.terminal.commands %}
+        <button type="button" data-command="{{ command.name }}">{{ command.name }}</button>
+        {% endfor %}
+      </div>
+      <p class="terminal__hint" id="terminal-hint" hidden>↑ command history · Tab autocomplete</p>
+      <noscript><p>Explore <a href="{{ '/research/' | relative_url }}">research</a>, <a href="{{ '/publications/' | relative_url }}">publications</a>, or <a href="mailto:{{ site.author.email }}">get in touch</a>. Enable JavaScript to use the terminal.</p></noscript>
+      <div class="visually-hidden" id="terminal-announcement" aria-live="polite" aria-atomic="true"></div>
+    </div>
+  </div>
+</section>
+<script type="application/json" id="terminal-data">
+{
+  "commands": {{ site.data.terminal.commands | jsonify }},
+  "replies": {
+    {% for reply in site.data.terminal.replies %}
+    {{ reply[0] | jsonify }}: {
+      "text": {{ reply[1].text | jsonify }},
+      "links": [{% for link in reply[1].links %}{"label": {{ link.label | jsonify }}, "url": {{ link.url | relative_url | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+    },
+    {% endfor %}
+    "contact": {
+      "text": "Let’s connect.",
+      "links": [
+        {"label": {{ site.author.email | jsonify }}, "url": {{ site.author.email | prepend: 'mailto:' | jsonify }}},
+        {"label": "GitHub", "url": {{ site.author.github | prepend: 'https://github.com/' | jsonify }}},
+        {"label": "LinkedIn", "url": {{ site.author.linkedin | prepend: 'https://www.linkedin.com/in/' | jsonify }}}
+      ]
+    },
+    "papers": {
+      "text": {% capture papers %}A few stops along the way:
+{% assign publications = site.publications | sort: 'date' | reverse %}{% for pub in publications %}
+{{ pub.handle }} — {{ pub.title }}
+{% endfor %}{% endcapture %}{{ papers | strip | jsonify }},
+      "links": [
+        {"label": "Publications", "url": {{ '/publications/' | relative_url | jsonify }}},
+        {"label": "Google Scholar", "url": {{ site.author.scholar | jsonify }}}
+      ]
+    }
+  }
+}
+</script>

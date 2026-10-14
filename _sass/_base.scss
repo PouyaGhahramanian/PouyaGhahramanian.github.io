@@ -27,13 +27,7 @@ body {
 
 /* Antialiasing is a dark-mode fix — forcing it in light mode makes a serif
    go anemic, which is the opposite of the letterpress look. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) body {
-    -webkit-font-smoothing: antialiased;
-  }
-}
-
-:root[data-theme="dark"] body {
+:root:not([data-theme="light"]) body {
   -webkit-font-smoothing: antialiased;
 }
 

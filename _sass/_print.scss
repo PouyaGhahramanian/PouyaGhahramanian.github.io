@@ -45,8 +45,7 @@
   .page__cta,
   .cv-download,
   .section__more,
-  .post-nav,
-  .hero__actions {
+  .post-nav {
     display: none !important;
   }
 
@@ -92,10 +91,6 @@
 
   h1, h2, h3 {
     break-after: avoid;
-  }
-
-  .hero__portrait {
-    max-width: 32mm;
   }
 
   .chip {

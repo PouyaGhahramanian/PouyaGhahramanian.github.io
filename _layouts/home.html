@@ -1,84 +1,41 @@
----
-layout: default
----
-
-<section class="hero">
-  <div class="wrap">
-    <div class="hero__grid">
-      {%- comment -%}
-      Text first in source order so a phone leads with the headline; on wide
-      viewports the grid places the portrait in the left column.
-      {%- endcomment -%}
-      <div class="hero__text">
-        <span class="eyebrow">{{ page.hero.eyebrow }}</span>
-        <h1 class="hero__headline">{{ page.hero.headline }}</h1>
-        <p class="hero__standfirst">{{ page.hero.standfirst }}</p>
-
-        <div class="hero__actions">
-          <a class="button" href="{{ '/publications/' | relative_url }}">
-            Publications {% include icon.html name="arrow" %}
-          </a>
-          <a class="button button--ghost" href="{{ '/research/' | relative_url }}">Research</a>
-          <a class="button button--ghost" href="{{ page.pdf | default: '/files/Pouya_Ghahramanian_cv.pdf' | relative_url }}">
-            {% include icon.html name="pdf" %} CV
-          </a>
-        </div>
-      </div>
-
-      <figure class="hero__portrait">
-        <span class="hero__plate">
-          <img src="{{ site.author.avatar | relative_url }}"
-               alt="Pouya Ghahramanian" width="900" height="900"
-               fetchpriority="high" decoding="async">
-        </span>
-      </figure>
-    </div>
-
-    {% include drift-trace.html class="drift--hero" id="hero" label=true %}
-  </div>
-</section>
-
-<section class="section" data-reveal>
-  <div class="wrap">
-    <div class="section__head">
+<!doctype html>
+<html data-theme="dark" lang="{{ site.locale | default: 'en' }}">
+<head>
+  {% include head.html %}
+</head>
+<body class="personal-home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="personal-header">
+    <a href="{{ '/' | relative_url }}" aria-label="Pouya, home">pouya.ai</a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+      <span class="theme-toggle__sun">{% include icon.html name="sun" %}</span>
+      <span class="theme-toggle__moon">{% include icon.html name="moon" %}</span>
+    </button>
+  </header>
+  <main id="main" class="personal-main">
+    <section class="personal-intro" aria-labelledby="hello">
+      <img class="personal-portrait" src="{{ site.author.avatar | relative_url }}"
+           alt="{{ site.author.name }}" width="896" height="1200" fetchpriority="high" decoding="async">
       <div>
-        <span class="eyebrow">Research</span>
-        <h2 class="section__title">Three strands, one question</h2>
+        <h1 id="hello">{{ page.hello }}</h1>
+        <p>{{ page.introduction | newline_to_br }}</p>
+        <nav class="personal-links" aria-label="Main navigation">
+          <a href="{{ '/research/' | relative_url }}">Research ↗</a>
+          <a href="{{ '/blog/' | relative_url }}">Writing ↗</a>
+          <a href="mailto:{{ site.author.email }}">Let’s connect ↗</a>
+        </nav>
       </div>
-      <a class="section__more" href="{{ '/research/' | relative_url }}">
-        Read more {% include icon.html name="arrow" %}
-      </a>
-    </div>
-
-    <div class="threads">
-      {%- for t in page.threads -%}
-      <article class="thread">
-        <h3 class="thread__term">{{ t.term }}</h3>
-        <p class="thread__def">{{ t.definition }}</p>
-        <span class="thread__work">{{ t.work }}</span>
-      </article>
-      {%- endfor -%}
-    </div>
-  </div>
-</section>
-
-{%- assign featured = site.publications | where: "featured", true | sort: "date" | reverse -%}
-<section class="section" data-reveal>
-  <div class="wrap">
-    <div class="section__head">
-      <div>
-        <span class="eyebrow">Selected work</span>
-        <h2 class="section__title">Peer-reviewed publications</h2>
-      </div>
-      <a class="section__more" href="{{ '/publications/' | relative_url }}">
-        All publications {% include icon.html name="arrow" %}
-      </a>
-    </div>
-
-    <ol class="biblio">
-      {%- for pub in featured -%}
-        {% include biblio-item.html pub=pub %}
-      {%- endfor -%}
-    </ol>
-  </div>
-</section>
+    </section>
+    {% include terminal.html %}
+  </main>
+  <footer class="personal-footer">
+    <span>{{ site.author.name }}</span>
+    <nav aria-label="Social links">
+      <a href="https://github.com/{{ site.author.github }}" rel="me noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" rel="me noopener">LinkedIn ↗</a>
+    </nav>
+  </footer>
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/terminal.js' | relative_url }}" defer></script>
+</body>
+</html>
